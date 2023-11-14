@@ -1,0 +1,38 @@
+spring:
+  rabbitmq:
+    host: 192.168.142.133
+    port: 5672
+    username: chef
+    virtual-host: chef1
+    password: 123456
+    listener:
+      simple:
+        prefetch: 1
+  application:
+    name: doctor-service
+  cache:
+    type: redis
+  redis:
+    port: 6379
+    host: 192.168.142.133
+  datasource:
+    url: jdbc:mysql://localhost:3306/myhospital
+    username: root
+    password: 156065
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      server-addr: 192.168.142.133:8848
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 8086

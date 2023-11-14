@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    nacos:
+      server-addr: 192.168.142.133:8848
+  redis:
+    host: 192.168.133.142
+    port: 6079
+  application:
+    name: acl-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/myhospital
+    username: root
+    password: 156065
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_
+  configuration:
+    map-underscore-to-camel-case: true

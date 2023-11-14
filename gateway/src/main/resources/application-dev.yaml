@@ -1,0 +1,28 @@
+server:
+  port: 9000
+spring:
+  redis:
+    host: 192.168.142.133
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 192.168.142.133:8848
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: acl-service
+          uri: lb://acl-service
+          predicates:
+            - Path=/acl/**
+          filters:
+            - StripPrefix=1
